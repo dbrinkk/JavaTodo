@@ -1,5 +1,8 @@
 package org.dbrinkk.agenda;
 
+import java.util.List;
+
 public interface IAgendaService {
-    String SayHello();
+    Agenda AddAsync(Agenda entity);
+    List<Agenda> GetAllAsync();
 }

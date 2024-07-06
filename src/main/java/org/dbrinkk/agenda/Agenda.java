@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import org.dbrinkk.agendaTodo.AgendaTodo;
-import org.dbrinkk.user.User;
+import org.dbrinkk.user.TodoUser;
 
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Agenda")
+@Table(name = "AGENDA")
 public class Agenda {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,8 +29,8 @@ public class Agenda {
     private List<AgendaTodo> agendaTodos;
 
     @ManyToOne()
-    @JoinColumn(name = "id", nullable = false)
-    private User user;
+    @JoinColumn(name = "userId", nullable = false)
+    private TodoUser todoUser;
 
     public Integer getId() {
         return id;
@@ -72,11 +72,11 @@ public class Agenda {
         this.agendaTodos = agendaTodos;
     }
 
-    public User getUser() {
-        return user;
+    public TodoUser getUser() {
+        return todoUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(TodoUser user) {
+        this.todoUser = user;
     }
 }

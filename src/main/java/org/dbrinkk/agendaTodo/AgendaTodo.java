@@ -8,17 +8,11 @@ import org.dbrinkk.todo.Todo;
 import java.util.Date;
 
 @Entity
-@Table(name = "AgendaTodo")
+@Table(name = "AGENDATODO")
 public class AgendaTodo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @NotNull
-    private Integer agendaId;
-
-    @NotNull
-    private Integer todoId;
 
     @NotNull
     private Integer priority;
@@ -27,20 +21,12 @@ public class AgendaTodo {
     private Date createdOn;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "agendaId", nullable = false)
     public Agenda agenda;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "todoId", nullable = false)
     public Todo todo;
-
-    public Integer getTodoId() {
-        return todoId;
-    }
-
-    public void setTodoId(Integer todoId) {
-        this.todoId = todoId;
-    }
 
     public Integer getId() {
         return id;
@@ -48,14 +34,6 @@ public class AgendaTodo {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getAgendaId() {
-        return agendaId;
-    }
-
-    public void setAgendaId(Integer agendaId) {
-        this.agendaId = agendaId;
     }
 
     public Integer getPriority() {

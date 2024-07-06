@@ -7,7 +7,7 @@ import org.dbrinkk.todo.Todo;
 import java.util.Date;
 
 @Entity
-@Table(name = "Attachment")
+@Table(name = "ATTACHMENT")
 public class Attachment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +23,7 @@ public class Attachment {
     private Date createdOn;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "todoId", nullable = false)
     private Todo todo;
 
     public Integer getId() {

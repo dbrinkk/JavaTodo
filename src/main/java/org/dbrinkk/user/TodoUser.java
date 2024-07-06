@@ -8,8 +8,8 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "User")
-public class User {
+@Table(name = "TODOUSER")
+public class TodoUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -23,7 +23,7 @@ public class User {
     @NotNull
     private Date createdOn;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "todoUser")
     private List<Agenda> agendas;
 
     public Integer getId() {

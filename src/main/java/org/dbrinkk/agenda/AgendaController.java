@@ -1,20 +1,26 @@
 package org.dbrinkk.agenda;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@Tag(name = "AgendaController")
+@RequestMapping(value = "/agenda")
 public class AgendaController {
 
     @Autowired()
     private AgendaService service;
 
-    @GetMapping("/hello")
-    public String SayHello() {
-        return service.SayHello();
+    @GetMapping()
+    public List<Agenda> GetAllAsync() {
+        return service.GetAllAsync();
+    }
 
+    @PostMapping()
+    public Agenda AddAsync(@RequestBody Agenda entity) {
+        return service.AddAsync(entity);
     }
 }
