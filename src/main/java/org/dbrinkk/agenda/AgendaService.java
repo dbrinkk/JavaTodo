@@ -1,4 +1,4 @@
-package org.dbrinkk.Agenda;
+package org.dbrinkk.agenda;
 
 import org.springframework.stereotype.Service;
 
