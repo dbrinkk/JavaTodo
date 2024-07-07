@@ -14,13 +14,18 @@ public class AgendaController {
     @Autowired()
     private AgendaService service;
 
-    @GetMapping()
-    public List<AgendaDto> GetByUserIdAsync(@RequestParam("userId") Long userId) {
-        return service.GetByUserIdAsync(userId);
+    @PostMapping()
+    public AgendaDto addAsync(@RequestBody AgendaDto dto) {
+        return this.service.addAsync(dto);
     }
 
-    @PostMapping()
-    public AgendaDto AddAsync(@RequestBody AgendaDto dto) {
-        return service.AddAsync(dto);
+    @GetMapping("allByUserId")
+    public List<AgendaDto> getByUserIdAsync(@RequestParam("userId") Long userId) {
+        return this.service.getByUserIdAsync(userId);
+    }
+
+    @DeleteMapping()
+    public boolean deleteByIdAsync(@RequestParam("id") Long id) {
+        return this.service.deleteByIdAsync(id);
     }
 }
