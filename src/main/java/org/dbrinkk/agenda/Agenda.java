@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import org.dbrinkk.agendaTodo.AgendaTodo;
-import org.dbrinkk.user.TodoUser;
+import org.dbrinkk.todoUser.TodoUser;
 
 import java.util.Date;
 import java.util.List;

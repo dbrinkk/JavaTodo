@@ -11,15 +11,16 @@ public class AgendaService implements IAgendaService {
 
     @Autowired
     private IAgendaRepository repo;
-
     private final IAgendaMapper mapper = new AgendaMapper();
 
-    public Agenda AddAsync(Agenda entity) {
-        if (entity == null) {
+    public AgendaDto AddAsync(AgendaDto dto) {
+        if (dto == null) {
             throw new IllegalArgumentException();
         }
 
-        return this.repo.save(entity);
+        Agenda entity = this.mapper.toEntity(dto);
+        Agenda result = this.repo.save(entity);
+        return this.mapper.toDto(result);
     }
 
     public List<AgendaDto> GetByUserIdAsync(Long userId) {

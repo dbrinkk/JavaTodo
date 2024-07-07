@@ -20,7 +20,7 @@ public class AgendaController {
     }
 
     @PostMapping()
-    public Agenda AddAsync(@RequestBody Agenda entity) {
-        return service.AddAsync(entity);
+    public AgendaDto AddAsync(@RequestBody AgendaDto dto) {
+        return service.AddAsync(dto);
     }
 }

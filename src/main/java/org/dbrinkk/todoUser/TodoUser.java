@@ -1,4 +1,4 @@
-package org.dbrinkk.user;
+package org.dbrinkk.todoUser;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

@@ -1,8 +1,18 @@
 package org.dbrinkk.agenda;
 
-import java.util.List;
+import org.dbrinkk.todoUser.ITodoUserRepository;
+import org.dbrinkk.todoUser.TodoUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class AgendaMapper implements IAgendaMapper {
+    @Autowired
+    private ITodoUserRepository todoRepo;
+
     @Override
     public Agenda toEntity(AgendaDto dto) {
         Agenda entity = new Agenda();
@@ -10,6 +20,12 @@ public class AgendaMapper implements IAgendaMapper {
         entity.setTitle(dto.getTitle());
         entity.setCreatedOn(dto.getCreatedOn());
         entity.setCreatedBy(dto.getCreatedBy());
+        Optional<TodoUser> userCheck = todoRepo.findById(dto.getUserId());
+        TodoUser user = null;
+        if (userCheck.isPresent()) {
+            user = userCheck.get();
+        }
+        entity.setUser(user);
         return entity;
     }
 
@@ -20,6 +36,7 @@ public class AgendaMapper implements IAgendaMapper {
         dto.setTitle(entity.getTitle());
         dto.setCreatedOn(entity.getCreatedOn());
         dto.setCreatedBy(entity.getCreatedBy());
+        dto.setUserId(entity.getUser().getId());
         return dto;
     }
 

@@ -11,6 +11,8 @@ public class AgendaDto {
 
     private Date createdOn;
 
+    private Long userId;
+
     public Long getId() {
         return id;
     }
@@ -41,5 +43,13 @@ public class AgendaDto {
 
     public void setCreatedOn(Date createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
