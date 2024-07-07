@@ -10,11 +10,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Todo")
+@Table(name = "TODO")
 public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotNull
     private String title;
@@ -37,11 +37,11 @@ public class Todo {
     @OneToMany(mappedBy = "todo")
     private List<AgendaTodo> agendaTodos;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

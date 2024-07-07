@@ -1,5 +1,9 @@
 package org.dbrinkk.agenda;
 
+import java.util.List;
+
 public interface IAgendaService {
-    String SayHello();
+    AgendaDto addAsync(AgendaDto dto);
+    boolean deleteByIdAsync(Long id);
+    List<AgendaDto> getByUserIdAsync(Long userId);
 }

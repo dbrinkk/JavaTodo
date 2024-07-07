@@ -1,4 +1,4 @@
-package org.dbrinkk.user;
+package org.dbrinkk.todoUser;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -8,11 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "User")
-public class User {
+@Table(name = "TODOUSER")
+public class TodoUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotNull
     private String username;
@@ -23,14 +23,14 @@ public class User {
     @NotNull
     private Date createdOn;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "todoUser")
     private List<Agenda> agendas;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
