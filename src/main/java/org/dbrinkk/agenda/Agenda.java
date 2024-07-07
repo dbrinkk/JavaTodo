@@ -13,8 +13,8 @@ import java.util.List;
 @Table(name = "AGENDA")
 public class Agenda {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Null
     private String title;
@@ -32,11 +32,11 @@ public class Agenda {
     @JoinColumn(name = "userId", nullable = false)
     private TodoUser todoUser;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

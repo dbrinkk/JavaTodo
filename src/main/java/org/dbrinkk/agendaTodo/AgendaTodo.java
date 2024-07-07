@@ -11,8 +11,8 @@ import java.util.Date;
 @Table(name = "AGENDATODO")
 public class AgendaTodo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotNull
     private Integer priority;
@@ -28,11 +28,11 @@ public class AgendaTodo {
     @JoinColumn(name = "todoId", nullable = false)
     public Todo todo;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

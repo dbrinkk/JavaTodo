@@ -11,8 +11,8 @@ import java.util.List;
 @Table(name = "TODOUSER")
 public class TodoUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotNull
     private String username;
@@ -26,11 +26,11 @@ public class TodoUser {
     @OneToMany(mappedBy = "todoUser")
     private List<Agenda> agendas;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

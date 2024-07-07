@@ -15,8 +15,8 @@ public class AgendaController {
     private AgendaService service;
 
     @GetMapping()
-    public List<Agenda> GetAllAsync() {
-        return service.GetAllAsync();
+    public List<AgendaDto> GetByUserIdAsync(@RequestParam("userId") Long userId) {
+        return service.GetByUserIdAsync(userId);
     }
 
     @PostMapping()
